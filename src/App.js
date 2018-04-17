@@ -8,10 +8,13 @@ import LogoutModal from './components/LogoutModal';
 import LoginModal from './components/LoginModal';
 import SignupModal from './components/SignupModal';
 import Footer from './components/Footer';
+import MessageBox from './components/MessageBox';
+
 
 function App(props) {
   const authStore = props.authStore;
   const channelStore = props.channelStore;
+  const messageStore = props.messageStore;
   return (
 
 
@@ -21,10 +24,12 @@ function App(props) {
       <LogoutModal authStore={authStore}/>
       <LoginModal authStore={authStore}/>
       <SignupModal authStore={authStore}/>
+      <MessageBox messageStore={messageStore}/>
       <Footer />
       <Switch>
         <Route path='/createChannel' channelStore={channelStore} />
         <Route path='/channels/:name' />
+
       </Switch>
     </div>
 
