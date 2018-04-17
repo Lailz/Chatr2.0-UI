@@ -3,10 +3,10 @@ import {observer} from 'mobx-react';
 
 // Components
 import Modal from './Modal';
-import RegistationForm from './RegistrationForm';
+import NewChannelForm from './NewChannelForm';
 
-function SignupModal(props) {
-  const authStore = props.authStore;
+function CreateNewChannel(props) {
+  const channelStore = props.channelStore;
   const body = <RegistationForm target="#loginModal"
                   alternateLinkText="login with an existing account"
                   authStore={authStore} />;
@@ -18,14 +18,14 @@ function SignupModal(props) {
   };
 
   const modalProps = {
-    id: 'signupModal',
-    title: 'Register an account',
+    id: 'createNewChannelModal',
+    title: 'Create a New Channel',
     body: body,
     clickHandler: signup,
-    store: authStore,
+    store: channelStore,
     type: 'Signup'
   }
   return <Modal {...modalProps} />;
 }
 
-export default observer(SignupModal);
+export default observer(CreateNewChannel);

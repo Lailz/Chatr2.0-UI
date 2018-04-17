@@ -6,6 +6,7 @@ import SideNav from './SideNav';
 import AuthButton from './AuthButton';
 
 function NavBar(props) {
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
       <a className="navbar-brand" href="index.html">Chatr2.0</a>
@@ -13,7 +14,7 @@ function NavBar(props) {
         <span className="navbar-toggler-icon"></span>
       </button>
       <div className="collapse navbar-collapse" id="navbarResponsive">
-        <SideNav />
+        <SideNav channelStore={props.channelStore} />
         <ul className="navbar-nav ml-auto">
           <span className="navbar-text">
             {props.authStore.currentUser}

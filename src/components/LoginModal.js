@@ -23,7 +23,7 @@ function LoginModal(props) {
     body: body,
     clickHandler: login,
     type: 'Login',
-    authStore: authStore
+    store: authStore
   }
 
   return <Modal {...modalProps}/>;

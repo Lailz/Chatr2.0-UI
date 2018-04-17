@@ -18,7 +18,7 @@ function Modal(props) {
             <button className="btn btn-secondary"
               type="button"
               data-dismiss="modal"
-              onClick={() => props.authStore && props.authStore.resetForm()}>
+              onClick={() => props.store && props.store.resetForm()}>
               Cancel
             </button>
             <button className="btn btn-primary"
