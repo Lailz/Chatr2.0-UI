@@ -5,7 +5,6 @@ import axios from 'axios';
 
 class ChannelStore {
   constructor() {
-    // this.currentChannel = localStorage.getItem("currentChannel");
     this.channels = [];
     this.error = [];
     this.channelName = "";
@@ -19,6 +18,26 @@ fetchChannels() {
           })
           .catch(err => console.error(err));
 }
+
+storeChannel(token) {
+  console.log(token)
+  return axios.post(
+    'http://192.168.100.54/channels/create/',
+    {name: this.channelName},
+    {headers: {Authorization: `JWT ${token}` }}
+  )
+  .then(res => res.data)
+  .then(
+    this.resetForm())
+  .then(this.fetchChannels())
+  .catch(err => console.error(err));
+}
+
+resetForm() {
+  this.error = [];
+  this.channelName = "";
+}
+
 }
 decorate(ChannelStore, {
   //currentChannel: observable,

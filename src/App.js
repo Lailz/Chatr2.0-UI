@@ -8,13 +8,12 @@ import LogoutModal from './components/LogoutModal';
 import LoginModal from './components/LoginModal';
 import SignupModal from './components/SignupModal';
 import Footer from './components/Footer';
+import CreateNewChannelModal from './components/CreateNewChannelModal';
 
 function App(props) {
   const authStore = props.authStore;
   const channelStore = props.channelStore;
   return (
-
-
 
     <div className="content-wrapper">
       <NavBar authStore={authStore} channelStore={channelStore}/>
@@ -23,12 +22,13 @@ function App(props) {
       <SignupModal authStore={authStore}/>
       <Footer />
       <Switch>
-        <Route path='/createChannel' channelStore={channelStore} />
+        <Route path='/createChannel'
+                     render={
+                       props => <CreateNewChannelModal {...props} authStore={authStore} channelStore={channelStore}/>
+                     } />
         <Route path='/channels/:name' />
       </Switch>
     </div>
-
-
 
   );
 }

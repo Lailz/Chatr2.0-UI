@@ -21,15 +21,6 @@ function NewChannelForm(props) {
             }}/>
         </div>
       </form>
-      <div className="text-center">
-        <button className="mx-auto mt-3 btn btn-small btn-link"
-          data-dismiss="modal"
-          data-toggle="modal"
-          data-target={props.target}
-          onClick={() => channelStore.error = []}>
-          {props.alternateLinkText}
-        </button>
-      </div>
     </div>
   );
 }

@@ -69,5 +69,5 @@ decorate(AuthStore, {
   password: observable,
   isLoggedIn: computed
 })
-
-export default new AuthStore();
+var auth = window.auth = new AuthStore()
+export default auth;
