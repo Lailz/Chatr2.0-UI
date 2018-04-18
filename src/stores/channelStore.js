@@ -34,7 +34,6 @@ storeChannel(token) {
   .catch(err => console.error(err));
 }
 
-
 getChannelByName(name) {
   return this.channels.find(channel => channel.name == name);
 }

@@ -5,7 +5,7 @@ import axios from 'axios';
 
 class MessageStore {
   constructor() {
-    this.currentChannel = "";
+    // this.currentChannel = "";
     this.messages = [];
     this.error = [];
     this.messageContent = "";
@@ -23,10 +23,10 @@ fetchMessages(channelID) {
 }
 
 storeMessage(channelID, token) {
- console.log(channelID)
+ console.log(token)
  return axios.post(
    `http://192.168.100.54/channels/${channelID}/send/`,
-   {name: this.messageContent},
+   {message: this.messageContent},
    {headers: {Authorization: `JWT ${token}` }}
  )
  .then(res => res.data)
@@ -37,7 +37,6 @@ storeMessage(channelID, token) {
  .catch(err => console.error(err));
 }
 
-
 resetForm() {
  this.error = [];
  this.messageContent = "";
@@ -46,7 +45,7 @@ resetForm() {
 }
 
 decorate(MessageStore, {
-  currentChannel: observable,
+  // currentChannel: observable,
   messages: observable,
   error: observable,
   messageContent: observable

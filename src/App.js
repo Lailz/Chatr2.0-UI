@@ -22,14 +22,22 @@ function App(props) {
       <LogoutModal authStore={authStore}/>
       <LoginModal authStore={authStore}/>
       <SignupModal authStore={authStore}/>
-      <MessageBox authStore={authStore} channelStore={channelStore} messageStore={messageStore} />
+      {/* <MessageBox authStore={authStore} channelStore={channelStore} messageStore={messageStore} /> */}
       <Footer />
       <Switch>
         <Route path='/createChannel'
                      render={
-                       props => <CreateNewChannelModal {...props} authStore={authStore} channelStore={channelStore}/>
+                       props => <CreateNewChannelModal {...props}
+                         authStore={authStore}
+                         channelStore={channelStore}/>
                      } />
-        <Route path='/channels/:name' />
+        <Route path='/channels/:name'
+                      render={
+                        props => <MessageBox {...props}
+                          authStore={authStore}
+                          channelStore={channelStore}
+                          messageStore={messageStore}/>
+                      } />
 
       </Switch>
     </div>
