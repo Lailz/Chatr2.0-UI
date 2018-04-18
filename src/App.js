@@ -22,7 +22,7 @@ function App(props) {
       <LogoutModal authStore={authStore}/>
       <LoginModal authStore={authStore}/>
       <SignupModal authStore={authStore}/>
-      <MessageBox messageStore={messageStore}/>
+      <MessageBox authStore={authStore} channelStore={channelStore} messageStore={messageStore} />
       <Footer />
       <Switch>
         <Route path='/createChannel'

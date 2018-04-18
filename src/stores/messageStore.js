@@ -5,15 +5,15 @@ import axios from 'axios';
 
 class MessageStore {
   constructor() {
-    //this.currentChannel = localStorage.getItem("currentChannel");
+    this.currentChannel = localStorage.getItem("currentChannel");
     this.messages = [];
     this.error = [];
-    this.messageName = "";
+    this.messageContent = "";
   }
 
 
-fetchMessages() {
- return axios.get('http://192.168.100.54/messages/')
+fetchMessages(channelID) {
+ return axios.get(`http://192.168.100.54/channels/${channelID}/`)
          .then(res => res.data)
          .then(message => {
            this.messages = message;
@@ -25,28 +25,30 @@ storeMessage(channelID, token) {
  console.log(channelID)
  return axios.post(
    `http://192.168.100.54/channels/${channelID}/send/`,
-   {name: this.messageName},
+   {name: this.messageContent},
    {headers: {Authorization: `JWT ${token}` }}
  )
  .then(res => res.data)
- .then(
-   this.resetForm())
- .then(this.fetchMessages())
+ .then(message => {
+   this.resetForm();
+   this.messages.push(message);
+   console.log(message);
+ })
  .catch(err => console.error(err));
 }
 
 resetForm() {
  this.error = [];
- this.messageName = "";
+ this.messageContent = "";
 }
 
 }
 
 decorate(MessageStore, {
-  //currentChannel: observable,
+  currentChannel: observable,
   messages: observable,
   error: observable,
-  messageName: observable
+  messageContent: observable
 })
 
 const messageStore =  new MessageStore()

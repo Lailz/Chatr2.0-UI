@@ -31,8 +31,6 @@ storeChannel(token) {
     this.resetForm();
     this.channels.push(channel);
   })
-    
-  .then()
   .catch(err => console.error(err));
 }
 
