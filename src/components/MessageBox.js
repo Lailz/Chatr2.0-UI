@@ -3,12 +3,10 @@ import {observer} from 'mobx-react';
 
 
 function MessageBox(props) {
-
   const channelStore = props.channelStore;
   const authStore = props.authStore;
   const messageStore = props.messageStore;
-  const channel = channelStore.getChannelByName(props.match.params.name);
-
+  const channel = props.channel;
 
   return (
     <div>

@@ -8,6 +8,7 @@ import LogoutModal from './components/LogoutModal';
 import LoginModal from './components/LoginModal';
 import SignupModal from './components/SignupModal';
 import Footer from './components/Footer';
+import MessagePage from './components/MessagePage';
 import MessageBox from './components/MessageBox';
 import CreateNewChannelModal from './components/CreateNewChannelModal';
 
@@ -18,11 +19,10 @@ function App(props) {
   return (
 
     <div className="content-wrapper">
-      <NavBar authStore={authStore} channelStore={channelStore}/>
+      <NavBar authStore={authStore} channelStore={channelStore} messageStore={messageStore}/>
       <LogoutModal authStore={authStore}/>
       <LoginModal authStore={authStore}/>
       <SignupModal authStore={authStore}/>
-      {/* <MessageBox authStore={authStore} channelStore={channelStore} messageStore={messageStore} /> */}
       <Footer />
       <Switch>
         <Route path='/createChannel'
@@ -33,7 +33,7 @@ function App(props) {
                      } />
         <Route path='/channels/:name'
                       render={
-                        props => <MessageBox {...props}
+                        props => <MessagePage {...props}
                           authStore={authStore}
                           channelStore={channelStore}
                           messageStore={messageStore}/>

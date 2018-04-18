@@ -12,9 +12,10 @@ class MessageStore {
   }
 
 
-fetchMessages(channelID) {
- return axios.get(`http://192.168.100.54/channels/${channelID}/`)
-         .then(res => res.data)
+fetchMessages(channelID, token) {
+  console.log(channelID)
+ return axios.get(`http://192.168.100.54/channels/${channelID}/`,
+                  {headers: {Authorization: `JWT ${token}` }})
          .then(message => {
            this.messages = message;
 
