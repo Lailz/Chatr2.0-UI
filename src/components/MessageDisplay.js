@@ -4,11 +4,12 @@ import {observer} from 'mobx-react';
 
 
 function MessageDisplay(props) {
-  console.log(props);
+  // console.log(props);
 
   const messageStore = props.messageStore;
-  let messages = messageStore.messages.map(
-    (x) => <p>{x.message}</p>
+  console.log(messageStore.messages)
+  let messages = messageStore.messages.length > 0 && messageStore.messages.map(
+    (x) => <div><p>{x.username}</p><br/><p>{x.message}</p></div>
   )
       return (
         <div>

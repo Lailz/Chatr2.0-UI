@@ -16,8 +16,9 @@ fetchMessages(channelID, token) {
   console.log(channelID)
  return axios.get(`http://192.168.100.54/channels/${channelID}/`,
                   {headers: {Authorization: `JWT ${token}` }})
-         .then(message => {
-           this.messages = message;
+         .then(res => res.data)
+         .then(messages => {
+           this.messages = messages;
 
          })
          .catch(err => console.error(err));
