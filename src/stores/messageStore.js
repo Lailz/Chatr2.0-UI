@@ -5,7 +5,7 @@ import axios from 'axios';
 
 class MessageStore {
   constructor() {
-    this.currentChannel = localStorage.getItem("currentChannel");
+    this.currentChannel = "";
     this.messages = [];
     this.error = [];
     this.messageContent = "";
@@ -17,6 +17,7 @@ fetchMessages(channelID) {
          .then(res => res.data)
          .then(message => {
            this.messages = message;
+
          })
          .catch(err => console.error(err));
 }
@@ -30,12 +31,12 @@ storeMessage(channelID, token) {
  )
  .then(res => res.data)
  .then(message => {
-   this.resetForm();
-   this.messages.push(message);
    console.log(message);
+   this.resetForm();
  })
  .catch(err => console.error(err));
 }
+
 
 resetForm() {
  this.error = [];
