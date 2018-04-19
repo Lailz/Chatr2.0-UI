@@ -2,6 +2,7 @@ import React from 'react';
 import {NavLink} from 'react-router-dom';
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faHashtag from '@fortawesome/fontawesome-free-solid/faHashtag'
+//import observer from 'mobx-react';
 
 function ChannelNavLink(props) {
 
@@ -16,4 +17,5 @@ function ChannelNavLink(props) {
   );
 }
 
+//export default observer(ChannelNavLink);
 export default ChannelNavLink;

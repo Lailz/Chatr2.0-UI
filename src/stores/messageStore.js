@@ -50,7 +50,8 @@ decorate(MessageStore, {
   // currentChannel: observable,
   messages: observable,
   error: observable,
-  messageContent: observable
+  messageContent: observable,
+  //fetchMessages: observable
 })
 
 const messageStore =  new MessageStore()
