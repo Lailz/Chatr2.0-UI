@@ -9,13 +9,13 @@ function MessageDisplay(props) {
   const messageStore = props.messageStore;
   console.log(messageStore.messages)
   let messages = messageStore.messages.length > 0 && messageStore.messages.map(
-    (x) => <div><p>{x.username}</p><br/><p>{x.message}</p></div>
+    (x) => <div class="card">
+      <div class="card-body"><p>{x.username}</p><p>{x.message}</p><p>{x.timestamp}</p></div></div>
   )
       return (
         <div>
-          {messages}
+            {messages}
         </div>
-
         );
       }
 
