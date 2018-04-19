@@ -13,9 +13,11 @@ import MessageBox from './components/MessageBox';
 import CreateNewChannelModal from './components/CreateNewChannelModal';
 
 function App(props) {
+
   const authStore = props.authStore;
   const channelStore = props.channelStore;
   const messageStore = props.messageStore;
+  
   return (
 
     <div className="content-wrapper">
@@ -38,7 +40,6 @@ function App(props) {
                           channelStore={channelStore}
                           messageStore={messageStore}/>
                       } />
-
       </Switch>
     </div>
 

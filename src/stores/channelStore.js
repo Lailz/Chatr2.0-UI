@@ -38,21 +38,30 @@ getChannelByName(name) {
   return this.channels.find(channel => channel.name == name);
 }
 
+
+
 resetForm() {
   this.error = [];
   this.channelName = "";
 }
 
 }
+
+
+
 decorate(ChannelStore, {
-  //currentChannel: observable,
   channels: observable,
   error: observable,
-  channelName: observable
+  channelName: observable,
+  fetchChannels: observable
 })
+
+
 
 const channelStore =  new ChannelStore()
 channelStore.fetchChannels();
+
+
 
 
 export default channelStore;

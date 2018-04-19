@@ -1,10 +1,11 @@
 import React from 'react';
 import {observer} from 'mobx-react';
+import {withRouter} from 'react-router-dom';
 
 // Components
 import SideNav from './SideNav';
 import AuthButton from './AuthButton';
-import {withRouter} from 'react-router-dom';
+
 
 function NavBar(props) {
 

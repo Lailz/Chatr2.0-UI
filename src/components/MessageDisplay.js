@@ -21,15 +21,11 @@ function MessageDisplay(props) {
 </div>
 
 
-    
-
-    
   )
       return (
         <div>
-          {messages}
+            {messages}
         </div>
-
         );
       }
 

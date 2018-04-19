@@ -12,16 +12,17 @@ function MessagePage(props) {
   const channel = channelStore.getChannelByName(props.match.params.name);
 
     return (
+      
       <div>
         <MessageDisplay authStore={authStore}
                         channelStore={channelStore}
                         messageStore={messageStore}
                         channel={channel}/>
 
-      <MessageBox authStore={authStore}
-                  channelStore={channelStore}
-                  messageStore={messageStore}
-                  channel={channel}/>
+        <MessageBox authStore={authStore}
+                    channelStore={channelStore}
+                    messageStore={messageStore}
+                    channel={channel}/>
       </div>
 
     );
