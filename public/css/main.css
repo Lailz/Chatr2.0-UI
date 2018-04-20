@@ -495,3 +495,13 @@ footer.sticky-footer {
     width: calc(100% - 55px);
   }
 }
+
+.input-group {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 87%;
+  height: 56px;
+  background-color: #e9ecef;
+  line-height: 55px;
+}

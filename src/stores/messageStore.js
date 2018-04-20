@@ -9,7 +9,7 @@ class MessageStore {
     this.messages = [];
     this.error = [];
     this.messageContent = "";
-    this.fetch = false;
+   //this.fetch = false;
   }
 
 
@@ -20,7 +20,7 @@ fetchMessages(channelID, token) {
          .then(res => res.data)
          .then(messages => {
            this.messages = messages;
-           this.fetch = true;
+           //this.fetch = true;
          })
          .catch(err => console.error(err));
 }

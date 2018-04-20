@@ -4,6 +4,7 @@ import {observer} from 'mobx-react';
 
 
 
+
 // Fontawesome
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faAngleLeft from '@fortawesome/fontawesome-free-solid/faAngleLeft';
@@ -53,4 +54,4 @@ class SideNav extends React.Component {
   }
 }
 
-export default observer(SideNav);
+export default withRouter(observer(SideNav));

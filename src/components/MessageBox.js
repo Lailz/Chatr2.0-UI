@@ -10,8 +10,8 @@ function MessageBox(props) {
 
   return (
     <div>
-      <div className="input-group fixed-bottom">
-        <div className="input-group-prepend">
+      <div className="input-group">
+        <div className="input-group-append">
           <button type="button" className="input-group-text btn btn-primary"
                   onClick={(e) =>
                   {messageStore.storeMessage(channel.id, authStore.token)}
@@ -25,3 +25,5 @@ function MessageBox(props) {
 }
 
 export default observer(MessageBox);
+
+

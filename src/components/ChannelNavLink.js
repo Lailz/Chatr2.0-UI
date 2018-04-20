@@ -4,6 +4,7 @@ import {observer} from 'mobx-react';
 
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faHashtag from '@fortawesome/fontawesome-free-solid/faHashtag'
+//import observer from 'mobx-react';
 
 function ChannelNavLink(props) {
 
@@ -20,5 +21,6 @@ function ChannelNavLink(props) {
     </li>
   );
 }
+
 
 export default observer(ChannelNavLink);
