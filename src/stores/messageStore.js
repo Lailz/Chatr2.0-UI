@@ -58,6 +58,4 @@ decorate(MessageStore, {
 const messageStore =  new MessageStore()
 messageStore.fetchMessages();
 
-
-
 export default messageStore;
