@@ -2,7 +2,9 @@ import React from 'react';
 import {observer} from 'mobx-react';
 
 function NewChannelForm(props) {
+
   const channelStore = props.channelStore;
+  
   return (
     <div>
       <form>

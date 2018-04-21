@@ -25,6 +25,7 @@ function CreateNewChannelModal(props) {
     body: body,
     clickHandler: create,
     store: channelStore,
+    type: 'Create'
   }
   console.log(modalProps);
   return <Modal {...modalProps} />;

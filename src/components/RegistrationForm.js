@@ -2,7 +2,9 @@ import React from 'react';
 import {observer} from 'mobx-react';
 
 function RegistationForm(props) {
+
   const authStore = props.authStore;
+  
   return (
     <div>
       <form>

@@ -4,23 +4,21 @@ import {observer} from 'mobx-react';
 
 import FontAwesomeIcon from '@fortawesome/react-fontawesome'
 import faHashtag from '@fortawesome/fontawesome-free-solid/faHashtag'
-//import observer from 'mobx-react';
 
 function ChannelNavLink(props) {
 
+  let channel = props.channel;
+  let authStore = props.authStore;
+  let channelStore = props.channelStore;
 
   return (
-    <li onClick={() => setInterval(
-        () => props.messageStore.fetchMessages(props.channel.id, props.authStore.token),
-        3000
-    ) } className="nav-item" data-toggle="tooltip" data-placement="right" title={props.channel.name}>
-      <NavLink className="nav-link" to={`/channels/${props.channel.name}`}>
+    <li onClick={() => channelStore.fetchMessages(channel.id, authStore.token)} className="nav-item" data-toggle="tooltip" data-placement="right" title={channel.name}>
+      <NavLink className="nav-link" to={`/channels/${channel.name}`}>
         <FontAwesomeIcon icon={faHashtag} />
-        <span className="nav-link-text"> {props.channel.name}</span>
+        <span className="nav-link-text"> {channel.name}</span>
       </NavLink>
     </li>
   );
 }
-
 
 export default observer(ChannelNavLink);

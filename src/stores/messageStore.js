@@ -12,7 +12,6 @@ class MessageStore {
    //this.fetch = false;
   }
 
-
 fetchMessages(channelID, token) {
   console.log(channelID)
  return axios.get(`http://192.168.100.54/channels/${channelID}/`,
@@ -52,10 +51,14 @@ decorate(MessageStore, {
   messages: observable,
   error: observable,
   messageContent: observable,
-  fetch: observable,
+//  fetch: observable,
 })
 
 const messageStore =  new MessageStore()
-messageStore.fetchMessages();
+
+//messageStore.fetchMessages();
+
+setInterval(  () => messageStore.fetchMessages(),
+    3000);
 
 export default messageStore;

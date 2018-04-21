@@ -5,7 +5,6 @@ import {observer} from 'mobx-react';
 function MessageBox(props) {
   const channelStore = props.channelStore;
   const authStore = props.authStore;
-  const messageStore = props.messageStore;
   const channel = props.channel;
 
   return (
@@ -14,10 +13,10 @@ function MessageBox(props) {
         <div className="input-group-append">
           <button type="button" className="input-group-text btn btn-primary"
                   onClick={(e) =>
-                  {messageStore.storeMessage(channel.id, authStore.token)}
+                  {channelStore.storeMessage(channel.id, authStore.token)}
                   }>Send</button>
         </div>
-        <textarea onChange={ (e) => {messageStore.messageContent = e.target.value}} className="form-control" aria-label="With textarea"></textarea>
+        <textarea onChange={ (e) => {channelStore.messageContent = e.target.value}} className="form-control" aria-label="With textarea"></textarea>
 
       </div>
     </div>
@@ -25,5 +24,3 @@ function MessageBox(props) {
 }
 
 export default observer(MessageBox);
-
-

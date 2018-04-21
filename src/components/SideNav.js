@@ -3,8 +3,6 @@ import {Link, withRouter} from 'react-router-dom';
 import {observer} from 'mobx-react';
 
 
-
-
 // Fontawesome
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import faAngleLeft from '@fortawesome/fontawesome-free-solid/faAngleLeft';
@@ -15,6 +13,7 @@ import faPlusCircle from '@fortawesome/fontawesome-free-solid/faPlusCircle';
 import ChannelNavLink from './ChannelNavLink';
 
 class SideNav extends React.Component {
+
   constructor(props) {
     super(props);
     this.state = {collapsed: false}
@@ -22,11 +21,14 @@ class SideNav extends React.Component {
 
   render () {
     const authStore = this.props.authStore;
-    const channelStore = this.props.channelStore.channels;
-    const messageStore = this.props.messageStore;
-    const channelLinks = channelStore.map(
-      channel => <ChannelNavLink authStore={authStore} messageStore={messageStore} key={channel.name} channel={channel} />
+    const channelStore = this.props.channelStore;
+
+    const channelLinks = channelStore.channels.map(
+      channel => <ChannelNavLink authStore={authStore} channelStore={channelStore} key={channel.name} channel={channel} />
     )
+
+    console.log(channelLinks);
+
     return (
       <div>
         <ul className="navbar-nav navbar-sidenav" id="exampleAccordion">

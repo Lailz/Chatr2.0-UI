@@ -5,9 +5,11 @@ import axios from 'axios';
 
 class ChannelStore {
   constructor() {
-    this.channels = [];
-    this.error = [];
     this.channelName = "";
+    this.channels = [];
+    this.messages = [];
+    this.messageContent = "";
+    this.error = [];
   }
 
 fetchChannels() {
@@ -38,30 +40,56 @@ getChannelByName(name) {
   return this.channels.find(channel => channel.name == name);
 }
 
+fetchMessages(channelID, token) {
+  console.log(channelID)
+ return axios.get(`http://192.168.100.54/channels/${channelID}/`,
+                  {headers: {Authorization: `JWT ${token}` }})
+         .then(res => res.data)
+         .then(messages => {
+           this.messages = messages;
+           //this.fetch = true;
+         })
+         .catch(err => console.error(err));
+}
 
+storeMessage(channelID, token) {
+ console.log(token)
+ return axios.post(
+   `http://192.168.100.54/channels/${channelID}/send/`,
+   {message: this.messageContent},
+   {headers: {Authorization: `JWT ${token}` }}
+ )
+ .then(res => res.data)
+ .then(message => {
+   console.log(message);
+   this.resetForm();
+ })
+ .catch(err => console.error(err));
+}
 
-resetForm() {
+resetChannelForm() {
   this.error = [];
   this.channelName = "";
 }
 
+resetMessageForm() {
+ this.error = [];
+ this.messageContent = "";
+}
 }
 
-
-
 decorate(ChannelStore, {
-  channels: observable,
-  error: observable,
   channelName: observable,
-  fetchChannels: observable
+  channels: observable,
+  messages: observable,
+  messageContent: observable,
+  error: observable,
 })
-
 
 
 const channelStore =  new ChannelStore()
 channelStore.fetchChannels();
-
-
+channelStore.fetchMessages();
 
 
 export default channelStore;

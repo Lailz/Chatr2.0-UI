@@ -12,38 +12,37 @@ import MessagePage from './components/MessagePage';
 import MessageBox from './components/MessageBox';
 import CreateNewChannelModal from './components/CreateNewChannelModal';
 
-function App(props) {
+  function App(props) {
 
-  const authStore = props.authStore;
-  const channelStore = props.channelStore;
-  const messageStore = props.messageStore;
-  
-  return (
+    const authStore = props.authStore;
+    const channelStore = props.channelStore;
 
-    <div className="content-wrapper">
-      <NavBar authStore={authStore} channelStore={channelStore} messageStore={messageStore}/>
-      <LogoutModal authStore={authStore}/>
-      <LoginModal authStore={authStore}/>
-      <SignupModal authStore={authStore}/>
-      <Footer />
-      <Switch>
-        <Route path='/createChannel'
-                     render={
-                       props => <CreateNewChannelModal {...props}
-                         authStore={authStore}
-                         channelStore={channelStore}/>
-                     } />
-        <Route path='/channels/:name'
-                      render={
-                        props => <MessagePage {...props}
-                          authStore={authStore}
-                          channelStore={channelStore}
-                          messageStore={messageStore}/>
-                      } />
-      </Switch>
-    </div>
+    
+    return (
 
-  );
-}
+      <div className="content-wrapper">
+        <NavBar authStore={authStore} channelStore={channelStore} />
+        <LogoutModal authStore={authStore}/>
+        <LoginModal authStore={authStore}/>
+        <SignupModal authStore={authStore}/>
+        <Footer />
+        <Switch>
+          <Route path='/createChannel'
+                       render={
+                         props => <CreateNewChannelModal {...props}
+                           authStore={authStore}
+                           channelStore={channelStore}/>
+                       } />
+          <Route path='/channels/:name'
+                        render={
+                          props => <MessagePage {...props}
+                            authStore={authStore}
+                            channelStore={channelStore}
+                            /*messageStore={messageStore}*//>
+                        } />
+        </Switch>
+      </div>
+    );
+  }
 
 export default App;

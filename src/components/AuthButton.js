@@ -9,6 +9,7 @@ import faUserPlus from '@fortawesome/fontawesome-free-solid/faUserPlus';
 
 function AuthButton(props) {
   const authStore = props.authStore;
+  
   return authStore.isLoggedIn ?
     <ul className="navbar-nav ml-auto">
       <li className="nav-item">

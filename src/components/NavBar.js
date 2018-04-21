@@ -9,6 +9,9 @@ import AuthButton from './AuthButton';
 
 function NavBar(props) {
 
+  const authStore = props.authStore;
+  const channelStore = props.channelStore;
+
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
       <a className="navbar-brand" href="index.html">MeBox</a>
@@ -16,12 +19,12 @@ function NavBar(props) {
         <span className="navbar-toggler-icon"></span>
       </button>
       <div className="collapse navbar-collapse" id="navbarResponsive">
-        <SideNav authStore={props.authStore} messageStore={props.messageStore} channelStore={props.channelStore} />
+        <SideNav authStore={authStore} channelStore={channelStore} />
         <ul className="navbar-nav ml-auto">
           <span className="navbar-text">
-            {props.authStore.currentUser}
+            {authStore.currentUser}
           </span>
-          <AuthButton authStore={props.authStore} />
+          <AuthButton authStore={authStore} />
         </ul>
       </div>
     </nav>
