@@ -12,6 +12,10 @@ class ChannelStore {
     this.error = [];
   }
 
+  Timer(token) {
+    () => setInterval(this.fetchMessages(this.channelName.id, token), 3000)
+  }
+
 fetchChannels() {
   return axios.get('http://192.168.100.54/channels/')
           .then(res => res.data)

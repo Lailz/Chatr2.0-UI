@@ -17,10 +17,11 @@ import CreateNewChannelModal from './components/CreateNewChannelModal';
     const authStore = props.authStore;
     const channelStore = props.channelStore;
 
-    
+
     return (
 
       <div className="content-wrapper">
+        {channelStore.Timer(authStore.token)}
         <NavBar authStore={authStore} channelStore={channelStore} />
         <LogoutModal authStore={authStore}/>
         <LoginModal authStore={authStore}/>

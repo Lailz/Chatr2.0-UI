@@ -2,9 +2,9 @@ import React from 'react';
 import {observer} from 'mobx-react';
 
 import MessageBox from './MessageBox'
-import MessageDisplay from './MessageDisplay'
 
 function MessagePage(props) {
+  var dateFormat = require('dateformat');
 
   const authStore = props.authStore;
   const channelStore = props.channelStore;
@@ -15,7 +15,7 @@ function MessagePage(props) {
     <div class="card">
       <div class="card-body">
         <h5>{x.username}</h5>
-        <h8>{x.timestamp}</h8>
+        <h8>{dateFormat(x.timestamp, "dd/mm HH:MM") }</h8>
         <p>{x.message}</p>
       </div>
     </div>);
